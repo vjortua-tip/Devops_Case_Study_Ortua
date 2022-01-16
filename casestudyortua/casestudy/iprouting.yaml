@@ -1,0 +1,21 @@
+---
+  - name: IP Route Checking
+    hosts: routers
+    become_method: enable
+    gather_facts: false
+    connection: network_cli
+
+    tasks:
+      - name: IP Interfaces
+        ios_command:
+          commands:
+            - show ip route
+        register: config
+
+      - name: Output Backups Save
+        copy:
+          content: "{{config.stdout[0]}}"
+          dest: "backups/showiproute{{inventory_hostname}}.txt"
+
+
+##Ortua, Vyanne Joyce P.

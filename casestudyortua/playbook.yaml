@@ -1,0 +1,6 @@
+- import_playbook: task/acl.yaml
+- import_playbook: task/Backups.yaml
+- import_playbook: task/ospf.yaml
+- import_playbook: task/iprouting.yaml
+
+##Ortua, Vyanne Joyce P.
